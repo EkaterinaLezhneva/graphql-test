@@ -1,23 +1,23 @@
-const TodoActions = require('../../index');
+const TodoActions = require('../actions/todo');
 
 const resolvers = {
   Query: {
-    getTodos: async (_, data) => {
-      return await TodoActions.getTodos(data);
+    getTodos: (obj, args) => {
+      return TodoActions.getTodos(args);
     }
   },
   Mutation: {
-    createTodo: async (_, data) => {
-      return await TodoActions.createTodo(data);
+    createTodo: (obj, args) => {
+      return TodoActions.createTodo(args);
     },
-    updateTodo: async (_, data) => {
-      return await TodoActions.updateTodo(data);
+    updateTodo: (obj, args) => {
+      return TodoActions.updateTodo(args);
     },
-    markTodo: async (_, data) => {
-      return await TodoActions.markTodo(data);
+    markTodo: (obj, args) => {
+      return TodoActions.markTodo(args);
     },
-    deleteTodo: (_, data) => {
-      return TodoActions.deleteTodo(data);
+    deleteTodo: (obj, args) => {
+      return TodoActions.deleteTodo(args);
     },
   }
 };
