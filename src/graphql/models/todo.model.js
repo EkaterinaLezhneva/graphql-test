@@ -24,21 +24,21 @@ const typeDefs = gql`
      ):[Todo]
   }, 
   type Mutation {
-  """
+    """
     Method createTodo creates a new todo.
     Two parameters are passed: description and priority; description is a mandatory field.
     If the priority parameter is not passed, then by default it is 1.
-  """
+    """
     createTodo(
       description: String,
       priority:Int
     ):Todo
     """
-      Method updateTodo update the todo with the specified id.
-      Two parameters description and priority are passed.
-      If only the description field is transmitted, then only the description field is updated.
-      If only priority is transmitted, then only the priority field is updated.
-      If both fields of a field are transmitted, then todo is updated both in the priority field and in the description field.
+      Method updateTodo updates the todo with the specified id.
+      Two parameters are passed: description and priority.
+      If only the description field is passed, then only the description field is updated.
+      If only priority is passed, then only the priority field is updated.
+      If both fields are passed, then todo is updated both in the priority field and in the description field.
     """
     updateTodo(
       id:Int!,
@@ -52,7 +52,7 @@ const typeDefs = gql`
       id:Int!
     ):Todo
     """
-      Method deleteTodo removes the todo with the specified id
+      Method deleteTodo removes the todo with the specified id.
     """
     deleteTodo(
       id:Int!
