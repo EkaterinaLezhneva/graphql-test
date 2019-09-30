@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-module.exports = () => ({
+const TodoModel = {
   description: {
     type: Sequelize.TEXT,
   },
@@ -12,4 +12,5 @@ module.exports = () => ({
     type: Sequelize.BOOLEAN,
     defaultValue: false,
   },
-});
+};
+module.exports = TodoModel;

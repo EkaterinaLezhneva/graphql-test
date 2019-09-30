@@ -1,17 +1,12 @@
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 
-const typeDefs = require('./graphql/models/todo.model')
-
-
-const resolvers = {
-  Query: {
-    hello: () => 'Hello world!',
-    error: () => 'This error'
-  },
-};
+const typeDefs = require('./src/graphql/models/todo.model');
+const resolvers = require('./src/graphql/resolvers/todo.resolvers');
+const { init } = require('./src/db/index.js');
 
 const server = new ApolloServer({ typeDefs, resolvers });
+init();
 
 const app = express();
 server.applyMiddleware({ app });
